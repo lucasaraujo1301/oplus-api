@@ -32,8 +32,6 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG', cast=bool, default=False)
 
-print(DEBUG)
-
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
 
@@ -46,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
