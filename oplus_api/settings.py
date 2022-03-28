@@ -34,7 +34,6 @@ DEBUG = env('DEBUG', cast=bool, default=False)
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'oplus_api.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -90,10 +88,12 @@ DATABASES = {
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASS'),
-        'PORT': env('DB_PORT')
+        'PORT': env('DB_PORT'),
+        'TEST': {
+            'NAME': 'mytestdatabase',
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -113,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -123,10 +122,10 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
